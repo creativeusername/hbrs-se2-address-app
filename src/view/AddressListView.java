@@ -35,8 +35,10 @@ import control.strategy.HighBudgetStrategy;
 import control.strategy.LowBudgetStrategy;
 import control.strategy.MessageSender;
 
-import model.AbstractAddress;
-import model.AddressList;
+import model.spring.AbstractAddress;
+import model.spring.AddressList;
+
+import model.BeansFactory;
 
 import view.AbstractAddressView;
 import view.decorator.AddressDecorator;
@@ -45,8 +47,9 @@ import view.decorator.AddressDecorator;
 public class AddressListView extends JFrame implements Observer {
 	
 	
-	// member fields, the AddressList to display and a ListModel
-	private AddressList addressList = AddressList.getInstance();
+	// member fields, the AddressList to display and a ListModel        
+        private AddressList addressList = (AddressList) BeansFactory.getIAddressList();
+        
 	private DefaultListModel listModel;
 
 	// create a AddressListView
