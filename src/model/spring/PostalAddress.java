@@ -1,6 +1,8 @@
-package model;
+package model.spring;
 
-public class PostalAddress extends AbstractAddress {
+import model.IPostalAddress;
+
+public class PostalAddress extends AbstractAddress implements IPostalAddress {
 
 	
 	private static final long serialVersionUID = 2859543943396233532L;
@@ -21,41 +23,49 @@ public class PostalAddress extends AbstractAddress {
 	}
 
 
+    @Override
 	public String getStraße() {
 		return straße;
 	}
 
 
+    @Override
 	public void setStraße(String straße) {
 		this.straße = straße;
 	}
 
 
+    @Override
 	public String getHausnummer() {
 		return hausnummer;
 	}
 
 
+    @Override
 	public void setHausnummer(String hausnummer) {
 		this.hausnummer = hausnummer;
 	}
 
 
+    @Override
 	public String getPlz() {
 		return plz;
 	}
 
 
+    @Override
 	public void setPlz(String plz) {
 		this.plz = plz;
 	}
 
 
+    @Override
 	public String getOrt() {
 		return ort;
 	}
 
 
+    @Override
 	public void setOrt(String ort) {
 		this.ort = ort;
 	}

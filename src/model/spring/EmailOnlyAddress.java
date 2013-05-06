@@ -1,6 +1,8 @@
-package model;
+package model.spring;
 
-public class EmailOnlyAddress extends AbstractAddress {
+import model.IEmailOnlyAddress;
+
+public class EmailOnlyAddress extends AbstractAddress implements IEmailOnlyAddress {
 	
 	/**
 	 * 
