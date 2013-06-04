@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 import model.IAbstractAddress;
 
-@Entity 
+
 public abstract class AbstractAddress implements Serializable, Cloneable, IAbstractAddress {
 
 	private static final long serialVersionUID = 6780532528672421304L;

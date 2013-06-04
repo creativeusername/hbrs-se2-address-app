@@ -8,7 +8,7 @@ public class AddressDAO {
 	
 	private Session session;
 	
-	public void setSessionFatory(SessionFactory sessionfactory){
+	public void setSessionFactory(SessionFactory sessionfactory){
 		session = sessionfactory.openSession();
 	}
 	

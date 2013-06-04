@@ -5,7 +5,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
     
     <bean id="AddressList" class="model.hibernatespring.AddressList" factory-method="getInstance" />
 	<bean id="AbstractAddress" abstract="true" class="model.hibernatespring.AbstractAddress" scope="prototype" />
-    <bean id="EmailOnlyAddress" class="model.hibernatespring.EmailOnlyAddress" scope="prototype" />
+    <bean id="EmailOnlyAddress" class="model.hibernatespring.EmailonlyAddress" scope="prototype" />
     <bean id="PostalAddress" class="model.hibernatespring.PostalAddress" scope="prototype"/>
 
 </beans>

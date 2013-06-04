@@ -1,15 +1,22 @@
 package model.hibernatespring;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import model.IAbstractAddress;
 import model.IPostalAddress;
 
+@Entity
+@Table (name = "POSTALADDRESS")
 public class PostalAddress extends AbstractAddress implements IPostalAddress {
 
 	
 	private static final long serialVersionUID = 2859543943396233532L;
 	
+	private int ID;
 	private String straße;
 	private String hausnummer;
 	private String plz;
@@ -24,7 +31,17 @@ public class PostalAddress extends AbstractAddress implements IPostalAddress {
 		ort = "";
 		System.out.println("PA: constructing...");
 	}
-
+	
+	@Id
+	@GeneratedValue
+	@Column (name = "ID")
+	public int getID(){
+		return ID;
+	}
+	
+	public void setID(int id){
+		ID = id;
+	}
 
     @Override
     @Column (name = "STRASSE")

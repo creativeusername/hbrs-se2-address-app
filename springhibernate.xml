@@ -19,7 +19,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>model.hibernatespring.PostalAddress</value>
-				<value>model.hibernatespring.EmailonlyAddress</value>
+				<value>model.hibernatespring.EmailOnlyAddress</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -38,7 +38,7 @@
 
 	<bean id = "AddressList" class = "model.hibernatespring.AddressList" factory-method="getInstance"/>
     <bean id = "PostalAddress" class = "model.hibernatespring.PostalAddress" scope = "prototype"/>
-    <bean id = "EmailOnlyAddress" class = "model.hibernatespring.EmailOnlyAddress" scope = "prototype"/>
     <bean id = "AbstractAddress" class = "model.hibernatespring.AbstractAddress" abstract = "true" scope = "prototype"/>
+    <bean id = "EmailOnlyAddress" class = "model.hibernatespring.EmailOnlyAddress" scope = "prototype"/>
     
 </beans>
