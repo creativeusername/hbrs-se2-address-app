@@ -6,7 +6,7 @@ import model.hibernatespring.*;
 
 public class BeansFactory {
     
-    private static ApplicationContext ctx = new FileSystemXmlApplicationContext("spring.xml");
+    private static ApplicationContext ctx = new FileSystemXmlApplicationContext("springhibernate.xml");
 
     public static IEmailOnlyAddress getIEmailOnlyAddress() {
         return ctx.getBean(EmailOnlyAddress.class);
@@ -22,5 +22,9 @@ public class BeansFactory {
 
     public static IAddressList getIAddressList() {
         return ctx.getBean(AddressList.class);
+    }
+    
+    public static AddressDAO getAddressDAO(){
+    	return ctx.getBean(AddressDAO.class);
     }
 }

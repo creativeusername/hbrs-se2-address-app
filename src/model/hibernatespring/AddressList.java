@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import org.springframework.context.expression.BeanFactoryAccessor;
+
+import model.BeansFactory;
 import model.IAbstractAddress;
 import model.IAddressList;
 
@@ -103,6 +106,13 @@ public class AddressList extends Observable implements Serializable, Iterable<IA
 	
     @Override
 	public void readAll(){
+    	
+    	AddressDAO session = (AddressDAO) new BeansFactory().getAddressDAO();
+    	
+    	m_addressList = session.find();
+    	
+    	
+    	/*
 		File inputFile = new File( "address_system.dat" );
         if( !inputFile.exists() ) {
             return;
@@ -137,13 +147,22 @@ public class AddressList extends Observable implements Serializable, Iterable<IA
         }
         
         notifyObservers();
-		
+		*/
 	}
 	
     @Override
 	public void saveAll(){
 		
+    	AddressDAO session = (AddressDAO)new BeansFactory().getAddressDAO();
+    	
+    	for (IAbstractAddress address : m_addressList){
+    		session.saveAddress(address);
+    		address.setDirty(false);
+    	}
 		
+    	notifyObservers();
+    	
+    	/*
 		
 		FileOutputStream fos = null;
 		ObjectOutputStream out = null;
@@ -168,7 +187,7 @@ public class AddressList extends Observable implements Serializable, Iterable<IA
 		notifyObservers();
 		
 		System.out.println("AL: done writing out data.");
-		
+		*/
 	}
 	
 	@Override

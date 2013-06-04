@@ -1,5 +1,7 @@
 package model.hibernatespring;
 
+import javax.persistence.Column;
+
 import model.IAbstractAddress;
 import model.IPostalAddress;
 
@@ -25,6 +27,7 @@ public class PostalAddress extends AbstractAddress implements IPostalAddress {
 
 
     @Override
+    @Column (name = "STRASSE")
 	public String getStraße() {
 		return straße;
 	}
@@ -37,6 +40,7 @@ public class PostalAddress extends AbstractAddress implements IPostalAddress {
 
 
     @Override
+    @Column (name = "HAUSNR")
 	public String getHausnummer() {
 		return hausnummer;
 	}
@@ -49,6 +53,7 @@ public class PostalAddress extends AbstractAddress implements IPostalAddress {
 
 
     @Override
+    @Column ( name = "PLZ")
 	public String getPlz() {
 		return plz;
 	}
@@ -61,6 +66,7 @@ public class PostalAddress extends AbstractAddress implements IPostalAddress {
 
 
     @Override
+    @Column (name = "ORT")
 	public String getOrt() {
 		return ort;
 	}
@@ -77,7 +83,7 @@ public class PostalAddress extends AbstractAddress implements IPostalAddress {
 	}
 	
 	@Override
-	protected void copyOf( final AbstractAddress address){
+	protected void copyOf(  AbstractAddress address){
 		
 		super.copyOf(address);
 		

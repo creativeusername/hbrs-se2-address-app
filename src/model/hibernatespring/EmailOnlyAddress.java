@@ -1,8 +1,13 @@
 package model.hibernatespring;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import model.IAbstractAddress;
 import model.IEmailOnlyAddress;
 
+@Entity
+@Table (name = "EmailAddress")
 public class EmailOnlyAddress extends AbstractAddress implements IEmailOnlyAddress {
 	
 	/**
