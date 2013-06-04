@@ -1,4 +1,4 @@
-package model.spring;
+package model.hibernatespring;
 
 import model.IAbstractAddress;
 import model.IPostalAddress;

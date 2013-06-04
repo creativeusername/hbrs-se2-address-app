@@ -1,4 +1,4 @@
-package model.spring;
+package model.hibernatespring;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,7 +20,7 @@ import model.IAddressList;
 public class AddressList extends Observable implements Serializable, Iterable<IAbstractAddress>, IAddressList {
 	private static final long serialVersionUID = -8436170099085318899L;
 	
-	private static List<IAbstractAddress> m_addressList = new LinkedList<IAbstractAddress>();
+	private List<IAbstractAddress> m_addressList = new LinkedList<IAbstractAddress>();
 	private static IAddressList singelton;
 	
 	
@@ -29,7 +29,7 @@ public class AddressList extends Observable implements Serializable, Iterable<IA
 		System.out.println("AL: constructing...");
 	}
 	
-	public IAddressList getInstance(){
+	public static IAddressList getInstance(){
 		if ( singelton == null){
 			synchronized (AddressList.class) {
 				if(singelton == null){
@@ -42,9 +42,9 @@ public class AddressList extends Observable implements Serializable, Iterable<IA
 
 	@Override
 	public Iterator<IAbstractAddress> iterator() {
-		return m_addressList.iterator();
+		return this.m_addressList.iterator();
 	}
-
+	
 	@Override
 	public synchronized void addObserver(Observer o) {
 		// TODO Auto-generated method stub
