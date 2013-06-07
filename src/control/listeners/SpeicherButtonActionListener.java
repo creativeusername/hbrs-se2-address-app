@@ -29,7 +29,7 @@ public class SpeicherButtonActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("ACTION: clicked to save or edit Address...");
-		IAddressList al = BeansFactory.getIAddressList();
+		IAddressList al = ((IAddressList) BeansFactory.getBean("AddressList"));
 				
 		if (al.contains(address)){
 			IAbstractAddress previousData;

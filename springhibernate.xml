@@ -41,4 +41,5 @@
     <bean id = "AbstractAddress" class = "model.hibernatespring.AbstractAddress" abstract = "true" scope = "prototype"/>
     <bean id = "EmailOnlyAddress" class = "model.hibernatespring.EmailOnlyAddress" scope = "prototype"/>
     
+    
 </beans>

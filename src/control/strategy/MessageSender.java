@@ -18,7 +18,7 @@ public class MessageSender {
 	
 	public static void sendMessageToAll(String msg){
 		System.out.println("ACTION: starting to send messages ENABLED_OPTION: " + strategy.strategyName());
-		for( IAbstractAddress address: BeansFactory.getIAddressList().getAddressList()){
+		for( IAbstractAddress address: ((IAddressList) BeansFactory.getBean("AddressList")).getAddressList()){
 			strategy.sendMessageTo(msg, address);
 		}
 	}

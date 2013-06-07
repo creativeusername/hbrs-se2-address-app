@@ -25,7 +25,7 @@ public class EditCommand extends AbstractCommand {
 	public void undo() {
 		
 		System.out.println("EDIT_COMMAND: undoing...");
-		IAddressList addressList = BeansFactory.getIAddressList();
+		IAddressList addressList = ((IAddressList) BeansFactory.getBean("AddressList"));
 		
 		if ( addressList.contains(address)){
 			addressList.edit(address, previousData);
@@ -38,7 +38,7 @@ public class EditCommand extends AbstractCommand {
 	@Override
 	public void execute() {
 		System.out.println("EDIT_COMMAND: executing...");
-		IAddressList addressList = BeansFactory.getIAddressList();
+		IAddressList addressList = ((IAddressList) BeansFactory.getBean("AddressList"));
 		
 		if ( addressList.contains(address)){
 			addressList.edit(address, changedData);

@@ -107,7 +107,7 @@ public class AddressList extends Observable implements Serializable, Iterable<IA
     @Override
 	public void readAll(){
     	
-    	AddressDAO session = (AddressDAO) new BeansFactory().getAddressDAO();
+    	AddressDAO session = (AddressDAO)  BeansFactory.getBean("AddresDAO");
     	
     	m_addressList = session.find();
     	
@@ -153,7 +153,7 @@ public class AddressList extends Observable implements Serializable, Iterable<IA
     @Override
 	public void saveAll(){
 		
-    	AddressDAO session = (AddressDAO)new BeansFactory().getAddressDAO();
+    	AddressDAO session = (AddressDAO) BeansFactory.getBean("AddressDAO");
     	
     	for (IAbstractAddress address : m_addressList){
     		session.saveAddress(address);

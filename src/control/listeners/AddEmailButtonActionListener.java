@@ -25,7 +25,7 @@ public class AddEmailButtonActionListener implements ActionListener {
 	// link the addressView to the addressListView
 	public void actionPerformed(ActionEvent arg0) {
 		System.out.println("ACTION: clicked to add new EmailOnlyAddress...");
-        IEmailOnlyAddress address = (IEmailOnlyAddress) BeansFactory.getIEmailOnlyAddress();
+        IEmailOnlyAddress address = (IEmailOnlyAddress) BeansFactory.getBean("EmailOnlyAddress");
 		new EmailOnlyAddressView(alv, address);
 	}
 

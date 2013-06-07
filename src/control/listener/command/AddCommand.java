@@ -14,13 +14,13 @@ public class AddCommand extends AbstractCommand {
 	@Override
 	public void undo() {
 		System.out.println("ADD_COMMAND: undoing...");
-		BeansFactory.getIAddressList().remove(address);
+		((IAddressList) BeansFactory.getBean("AddressList")).remove(address);
 	}
 
 	@Override
 	public void execute() {
 		System.out.println("ADD_COMMAND: executing...");
-		BeansFactory.getIAddressList().add(address);
+		((IAddressList) BeansFactory.getBean("AddressList")).add(address);
 	}
 
 }

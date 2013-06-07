@@ -19,7 +19,7 @@ public class AddPostalActionListener implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		System.out.println("ACTION: clicked to add new PostalAddress...");
-		IPostalAddress address = (IPostalAddress) BeansFactory.getIPostalAddress();
+		IPostalAddress address = (IPostalAddress) BeansFactory.getBean("PostalAddress");
 		new PostalAddressView(alv, address);
 	}
 

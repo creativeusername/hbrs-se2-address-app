@@ -1,6 +1,7 @@
 package test;
 
 import view.decorator.AddressDecorator;
+import model.IAddressList;
 import model.IEmailOnlyAddress;
 import model.IPostalAddress;
 import junit.framework.TestCase;
@@ -14,11 +15,11 @@ public class ModelTest extends TestCase {
 	protected void setUp() throws Exception {	    
 		super.setUp(); 
 	 	                 
-	    emailAddress =  BeansFactory.getIEmailOnlyAddress(); 
+	    emailAddress =  (IEmailOnlyAddress)BeansFactory.getBean("EmailOnlyAddress"); 
         emailAddress.setName( "emailname" ); 
 	    emailAddress.setEmailaddress( "email" ); 
 	 	                 
-	    postalAddress = BeansFactory.getIPostalAddress(); 
+	    postalAddress = (IPostalAddress)BeansFactory.getBean("PostalAddress"); 
 	 	postalAddress.setName( "postalname" ); 
 	 	postalAddress.setEmailaddress( "email" ); 
 		postalAddress.setStraße( "strasse" ); 
@@ -26,8 +27,8 @@ public class ModelTest extends TestCase {
 	 	postalAddress.setPlz( "54321" ); 
 	 	postalAddress.setOrt( "Milkyway" ); 
 	 	
-	 	BeansFactory.getIAddressList().add(emailAddress);
-	 	BeansFactory.getIAddressList().add(postalAddress);
+	 	((IAddressList)BeansFactory.getBean("AddressList")).add(emailAddress);
+	 	((IAddressList)BeansFactory.getBean("AddressList")).add(postalAddress);
 	}
 
 	protected void tearDown() throws Exception {

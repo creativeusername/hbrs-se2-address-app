@@ -48,14 +48,14 @@ public class AddressListView extends JFrame implements Observer {
 	
 	
 	// member fields, the AddressList to display and a ListModel        
-        private IAddressList addressList = (IAddressList) BeansFactory.getIAddressList();
+        private IAddressList addressList = ((IAddressList) BeansFactory.getBean("AddressList"));
         
 	private DefaultListModel listModel;
 
 	// create a AddressListView
 	public AddressListView() {
 		System.out.println("ALV: constructing....");
-		BeansFactory.getIAddressList().addObserver(this);
+		((IAddressList) BeansFactory.getBean("AddressList")).addObserver(this);
 		
 		init();
 		populateFields();

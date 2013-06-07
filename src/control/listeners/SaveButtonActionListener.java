@@ -3,6 +3,7 @@ package control.listeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.BeansFactory;
+import model.IAddressList;
 
 
 public class SaveButtonActionListener implements ActionListener {
@@ -16,7 +17,7 @@ public class SaveButtonActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		System.out.println("ACTION: clicked to save data to disk, serializing data...");
-		BeansFactory.getIAddressList().saveAll();
+		((IAddressList) BeansFactory.getBean("AddressList")).saveAll();
 	}
 
 }

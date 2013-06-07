@@ -29,7 +29,7 @@ public class AddressList extends Observable implements Serializable, Iterable<IA
 		System.out.println("AL: constructing...");
 	}
 	
-	public IAddressList getInstance(){
+	public static IAddressList getInstance(){
 		if ( singelton == null){
 			synchronized (AddressList.class) {
 				if(singelton == null){
@@ -130,7 +130,7 @@ public class AddressList extends Observable implements Serializable, Iterable<IA
             return;
         }
 
-        for( IAbstractAddress address : addressList ) {
+        for( IAbstractAddress address : addressList.getAddressList() ) {
         	System.out.println("DEBUG: reading in address: " + address);
             m_addressList.add( address );
             address.setDirty(false);
@@ -161,7 +161,7 @@ public class AddressList extends Observable implements Serializable, Iterable<IA
 			return;
 		}
 		
-		for(IAbstractAddress address: this ){
+		for(IAbstractAddress address: this.getAddressList()){
 			address.setDirty(false);
 		}
 		
