@@ -1,0 +1,137 @@
+package model.hibernatespring;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import model.IAbstractAddress;
+import model.IPostalAddress;
+
+@Entity
+@Table (name = "POSTALADDRESS")
+public class PostalAddress extends AbstractAddress implements IPostalAddress {
+
+	
+	private static final long serialVersionUID = 2859543943396233532L;
+	
+	private int ID;
+	private String straße;
+	private String hausnummer;
+	private String plz;
+	private String ort;
+	
+	
+	public PostalAddress() {
+		super();
+		straße = "";
+		hausnummer = "";
+		plz = "";
+		ort = "";
+		System.out.println("PA: constructing...");
+	}
+	
+	@Id
+	@GeneratedValue
+	@Column (name = "ID")
+	public int getID(){
+		return ID;
+	}
+	
+	public void setID(int id){
+		ID = id;
+	}
+
+    @Override
+    @Column (name = "STRASSE")
+	public String getStraße() {
+		return straße;
+	}
+
+
+    @Override
+	public void setStraße(String straße) {
+		this.straße = straße;
+	}
+
+
+    @Override
+    @Column (name = "HAUSNR")
+	public String getHausnummer() {
+		return hausnummer;
+	}
+
+
+    @Override
+	public void setHausnummer(String hausnummer) {
+		this.hausnummer = hausnummer;
+	}
+
+
+    @Override
+    @Column ( name = "PLZ")
+	public String getPlz() {
+		return plz;
+	}
+
+
+    @Override
+	public void setPlz(String plz) {
+		this.plz = plz;
+	}
+
+
+    @Override
+    @Column (name = "ORT")
+	public String getOrt() {
+		return ort;
+	}
+
+
+    @Override
+	public void setOrt(String ort) {
+		this.ort = ort;
+	}
+	
+	@Override
+	public String toString(){
+		return super.toString() + String.format("%s, %s, %s, %s", straße, hausnummer, plz , ort);
+	}
+	
+	@Override
+	protected void copyOf(  AbstractAddress address){
+		
+		super.copyOf(address);
+		
+		PostalAddress p = (PostalAddress)address;
+		
+		straße = p.getStraße();
+		hausnummer = p.getHausnummer();
+		plz = p.getPlz();
+		ort = p.getOrt();
+	}
+	
+	@Override
+	public void changeTo(AbstractAddress newData){
+		
+		super.changeTo(newData);
+		
+		PostalAddress p = (PostalAddress)newData;
+		
+		this.straße = p.getStraße();
+		this.hausnummer = p.getHausnummer();
+		this.plz = p.getPlz();
+		this.ort = p.getOrt();
+		
+	}
+
+
+	@Override
+	public void changeTo(IAbstractAddress newData) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

@@ -1,24 +1,26 @@
 package control.listener.command;
 
-import model.spring.AbstractAddress;
-import model.spring.AddressList;
+
+import model.BeansFactory;
+import model.IAbstractAddress;
+import model.IAddressList;
 
 public class AddCommand extends AbstractCommand {
 	
-	public AddCommand(final AbstractAddress adr){
+	public AddCommand(final IAbstractAddress adr){
 		super(adr);
 	}
 
 	@Override
 	public void undo() {
 		System.out.println("ADD_COMMAND: undoing...");
-		AddressList.getInstance().remove(address);
+		((IAddressList) BeansFactory.getBean("AddressList")).remove(address);
 	}
 
 	@Override
 	public void execute() {
 		System.out.println("ADD_COMMAND: executing...");
-		AddressList.getInstance().add(address);
+		((IAddressList) BeansFactory.getBean("AddressList")).add(address);
 	}
 
 }

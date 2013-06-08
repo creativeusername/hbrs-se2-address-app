@@ -1,26 +1,25 @@
 package test;
 
-import view.AddressListView;
 import view.decorator.AddressDecorator;
-import model.spring.AddressList;
-import model.spring.EmailOnlyAddress;
-import model.spring.PostalAddress;
+import model.IAddressList;
+import model.IEmailOnlyAddress;
+import model.IPostalAddress;
 import junit.framework.TestCase;
 import model.BeansFactory;
 
 public class ModelTest extends TestCase {
 	
-	private EmailOnlyAddress emailAddress; 
- 	private PostalAddress postalAddress; 
+	private IEmailOnlyAddress emailAddress; 
+ 	private IPostalAddress postalAddress; 
 
 	protected void setUp() throws Exception {	    
 		super.setUp(); 
 	 	                 
-	    emailAddress = (EmailOnlyAddress) BeansFactory.getIEmailOnlyAddress(); 
-            emailAddress.setName( "emailname" ); 
+	    emailAddress =  (IEmailOnlyAddress)BeansFactory.getBean("EmailOnlyAddress"); 
+        emailAddress.setName( "emailname" ); 
 	    emailAddress.setEmailaddress( "email" ); 
 	 	                 
-	    postalAddress = (PostalAddress) BeansFactory.getIPostalAddress(); 
+	    postalAddress = (IPostalAddress)BeansFactory.getBean("PostalAddress"); 
 	 	postalAddress.setName( "postalname" ); 
 	 	postalAddress.setEmailaddress( "email" ); 
 		postalAddress.setStraße( "strasse" ); 
@@ -28,8 +27,8 @@ public class ModelTest extends TestCase {
 	 	postalAddress.setPlz( "54321" ); 
 	 	postalAddress.setOrt( "Milkyway" ); 
 	 	
-	 	AddressList.getInstance().add(emailAddress);
-	 	AddressList.getInstance().add(postalAddress);
+	 	((IAddressList)BeansFactory.getBean("AddressList")).add(emailAddress);
+	 	((IAddressList)BeansFactory.getBean("AddressList")).add(postalAddress);
 	}
 
 	protected void tearDown() throws Exception {
